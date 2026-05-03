@@ -18,14 +18,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: تثبيت التبعيات
+- name: تثبيت التبعيات
         run: |
           python -m pip install --upgrade pip
-          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests
-          pip install pymongo python-dotenv
+          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv
           git clone https://github.com/cleitonleonel/pyquotex.git /tmp/pyquotex
-          cd /tmp/pyquotex && pip install -e . && cd -
-          python -c "from pyquotex.client import Quotex; print('pyquotex OK')"
+          pip install -e /tmp/pyquotex
 
       - name: إنشاء ملف .env
         run: |
