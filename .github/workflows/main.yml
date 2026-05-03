@@ -18,8 +18,7 @@ jobs:
       - name: تثبيت التبعيات
         run: |
           pip install --upgrade pip
-          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv websockets
-          pip install -r pyquotex/requirements.txt || true
+          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv websockets httpx beautifulsoup4 fake-useragent rich anyio
 
       - name: إنشاء ملف env
         run: |
