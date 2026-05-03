@@ -8,34 +8,28 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: إعداد الوظيفة
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: إعداد بايثون 3.12
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.12"
 
-- name: تثبيت التبعيات
+      - name: تثبيت التبعيات
         run: |
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv
           git clone https://github.com/cleitonleonel/pyquotex.git /tmp/pyquotex
           pip install -e /tmp/pyquotex
 
-      - name: إنشاء ملف .env
+      - name: إنشاء ملف env
         run: |
-          cat > .env << EOF
-          API_ID=${{ secrets.API_ID }}
-          API_HASH=${{ secrets.API_HASH }}
-          BOT_TOKEN=${{ secrets.BOT_TOKEN }}
-          OWNER_ID=${{ secrets.OWNER_ID }}
-          MONGO_URI=${{ secrets.MONGO_URI }}
-          PING_INTERVAL=20
-          EOF
+          echo "API_ID=${{ secrets.API_ID }}" > .env
+          echo "API_HASH=${{ secrets.API_HASH }}" >> .env
+          echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" >> .env
+          echo "OWNER_ID=${{ secrets.OWNER_ID }}" >> .env
+          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env
+          echo "PING_INTERVAL=20" >> .env
 
       - name: تشغيل البوت
-        run: |
-          python3 bot.py
+        run: python3 bot.py
