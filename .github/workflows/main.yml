@@ -20,6 +20,7 @@ jobs:
           pip install --upgrade pip
           pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv websockets httpx beautifulsoup4 fake-useragent rich anyio
           pip install "pymongo[srv]"
+          pip install certifi
 
       - name: إنشاء ملف env
         run: |
@@ -34,3 +35,4 @@ jobs:
         run: python3 bot.py
         env:
           PYTHONPATH: ${{ github.workspace }}
+          SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
