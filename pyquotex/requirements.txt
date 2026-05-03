@@ -1,0 +1,9 @@
+websockets
+requests
+httpx
+beautifulsoup4
+fake-useragent
+rich
+anyio
+soupsieve
+typing-extensions
