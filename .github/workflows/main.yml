@@ -18,10 +18,7 @@ jobs:
       - name: تثبيت التبعيات
         run: |
           pip install --upgrade pip
-          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv
-          git clone https://github.com/cleitonleonel/pyquotex.git /tmp/pyquotex
-          ls /tmp/pyquotex
-          cp -r /tmp/pyquotex/* $GITHUB_WORKSPACE/
+          pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv websockets
 
       - name: إنشاء ملف env
         run: |
