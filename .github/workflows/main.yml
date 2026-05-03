@@ -31,3 +31,5 @@ jobs:
 
       - name: تشغيل البوت
         run: python3 bot.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}
