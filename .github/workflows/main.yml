@@ -20,7 +20,7 @@ jobs:
           pip install --upgrade pip
           pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv
           git clone https://github.com/cleitonleonel/pyquotex.git /tmp/pyquotex
-          pip install -e /tmp/pyquotex
+          cp -r /tmp/pyquotex/quotexapi $GITHUB_WORKSPACE/quotexapi
 
       - name: إنشاء ملف env
         run: |
