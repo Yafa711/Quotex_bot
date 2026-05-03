@@ -49,8 +49,8 @@ except ImportError:
 
 # --- pyquotex Imports ---
 try:
-    from quotexapi.stable_api import Quotex
-    from quotexapi.utils.processor import get_color # Optional
+    from pyquotex.stable_api import Quotex
+    from pyquotex.utils.processor import get_color # Optional
     # Monkey patch target detection function (safer approach)
     # --- Inside your script, replace the existing function ---
     
