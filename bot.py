@@ -124,7 +124,7 @@ async def setup_database():
     """Initializes MongoDB connection and collections."""
     global db, users_db, quotex_accounts_db, trade_settings_db
     try:
-        client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI)
+        client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_URI, tlsAllowInvalidCertificates=True, serverSelectionTimeoutMS=30000)
         db = client['quotexTraderBot'] # Database name
         users_db = db['users']
         quotex_accounts_db = db['quotex_accounts']
