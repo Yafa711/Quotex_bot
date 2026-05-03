@@ -19,6 +19,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install pyrogram tgcrypto motor colorama dnspython flask gunicorn requests pymongo python-dotenv websockets httpx beautifulsoup4 fake-useragent rich anyio
+          pip install "pymongo[srv]"
 
       - name: إنشاء ملف env
         run: |
@@ -26,7 +27,7 @@ jobs:
           echo "API_HASH=${{ secrets.API_HASH }}" >> .env
           echo "BOT_TOKEN=${{ secrets.BOT_TOKEN }}" >> .env
           echo "OWNER_ID=${{ secrets.OWNER_ID }}" >> .env
-          echo "MONGO_URI=${{ secrets.MONGO_URI }}" >> .env
+          echo 'MONGO_URI=${{ secrets.MONGO_URI }}' >> .env
           echo "PING_INTERVAL=20" >> .env
 
       - name: تشغيل البوت
